@@ -1,44 +1,21 @@
-/**
- * Converts the given Fahrenheit temperature `f` to Celsius.
- * @param {number} f temperature in °F
- * @returns {number} temperature in °C
- */
-function convertToCelsius(f) {
-  return (f - 32) * (5 / 9);
+function fahrenheitToCelsius(fahrenheit) {
+  let celsius = (fahrenheit - 32) * 1.8;
+  return celsius;
 }
-
-/**
- * | Temperature (°C) | Description |
- * | ---------------- | ----------- |
- * | < 0              | "very cold" |
- * | < 20             | "cold"      |
- * | < 30             | "warm"      |
- * | < 40             | "hot"       |
- * | >= 40            | "very hot"  |
- *
- * @param {number} f temperature in °F
- * @returns {string} the corresponding description from the table above
- */
-function describeTemperature(f) {
-  const c = convertToCelsius(f);
-
-  let description = "";
-
-  if (c < 0) {
-    description = "very cold";
-  } else if (c < 20) {
-    description = "cold";
-  } else if (c < 30) {
-    description = "warm";
-  } else if (c < 40) {
-    description = "hot";
-  } else {
-    description = "very hot";
+function describeTemperature(celsius) {
+  const message = "";
+  if (celsius < 0) {
+    message = "very cold";
+  } else if (celsius < 20) {
+    message = "cold";
+  } else if (celsius < 30) {
+    message = "warm";
+  } else if (celsius < 40) {
+    message = "hot";
   }
-
-  return `${f}°F is ${c}°C. That is ${description}.`;
+  return message`${fahrenheit} °f is ${celsius} °c feels ${message}`;
 }
 
-const f = prompt("Please enter a temperature in Fahrenheit");
-const description = describeTemperature(f);
-alert(description);
+const fahrenheit = prompt("Please enter a temperature in Fahrenheit");
+const message = describeTemperature(fahrenheit);
+alert(message);
